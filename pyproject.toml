@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf_rotation"
+version = "0.1.0"
+description = "This package determines the orientation of a PDF document (north, south, east, west) and return the number of degrees to rotate the document so it is positioned vertically (north)."
+readme = "README.rst"
+authors = [
+  {name = "Shawn Edward Corkery", email = "secorkery@gmail.com"}
+]
+maintainers = [
+  {name = "Shawn Edward Corkery", email = "secorkery@gmail.com"}
+]
+classifiers = [
+
+]
+license = {text = "MIT license"}
+dependencies = [
+  
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage",  # testing
+    "mypy",  # linting
+    "pytest",  # testing
+    "ruff"  # linting
+]
+
+[project.urls]
+
+bugs = "https://github.com/secorkery/pdf_rotation/issues"
+changelog = "https://github.com/secorkery/pdf_rotation/blob/master/changelog.md"
+homepage = "https://github.com/secorkery/pdf_rotation"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"*" = ["*.*"]
+
+
+
+
+# Mypy
+# ----
+
+[tool.mypy]
+files = "."
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+allow_untyped_defs = true
+disable_error_code = "attr-defined"
+
